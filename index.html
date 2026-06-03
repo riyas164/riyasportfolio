@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Online Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>My Online Store</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Task 2: Cart Item Count -->
+    <div class="cart-icon">
+      🛒 Cart: <span id="cart-count">0</span> item(s)
+    </div>
+  </header>
+
+  <!-- Product Display Section -->
+  <main id="products">
+    <h2>Our Products</h2>
+    <p class="section-subtitle">Handpicked favorites just for you</p>
+
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Headphones" alt="Wireless Headphones" />
+        <div class="product-info">
+          <span class="category electronics">Electronics</span>
+          <h3>Wireless Headphones</h3>
+          <p class="description">Crystal-clear sound with active noise cancellation and 30-hour battery life.</p>
+          <p class="price">$49.99</p>
+          <button class="btn-details" onclick="toggleDetails(this)">View Details</button>
+          <div class="extra-details hidden">
+            <p>Brand: SoundMax | Weight: 250g | Warranty: 1 Year</p>
+          </div>
+          <button class="btn-cart" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Smart+Watch" alt="Smart Watch" />
+        <div class="product-info">
+          <span class="category electronics">Electronics</span>
+          <h3>Smart Watch</h3>
+          <p class="description">Track fitness, receive notifications, and monitor your health 24/7.</p>
+          <p class="price">$129.99</p>
+          <button class="btn-details" onclick="toggleDetails(this)">View Details</button>
+          <div class="extra-details hidden">
+            <p>Brand: TimeTech | Display: AMOLED | Battery: 7 Days</p>
+          </div>
+          <button class="btn-cart" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Backpack" alt="Travel Backpack" />
+        <div class="product-info">
+          <span class="category accessories">Accessories</span>
+          <h3>Travel Backpack</h3>
+          <p class="description">Durable 40L backpack with USB charging port and waterproof coating.</p>
+          <p class="price">$79.99</p>
+          <button class="btn-details" onclick="toggleDetails(this)">View Details</button>
+          <div class="extra-details hidden">
+            <p>Capacity: 40L | Material: Nylon | Pockets: 6</p>
+          </div>
+          <button class="btn-cart" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Jacket" alt="Winter Jacket" />
+        <div class="product-info">
+          <span class="category clothing">Clothing</span>
+          <h3>Winter Jacket</h3>
+          <p class="description">Warm, lightweight puffer jacket perfect for cold weather adventures.</p>
+          <p class="price">$99.99</p>
+          <button class="btn-details" onclick="toggleDetails(this)">View Details</button>
+          <div class="extra-details hidden">
+            <p>Fill: 90% Duck Down | Sizes: S–XXL | Colors: 4</p>
+          </div>
+          <button class="btn-cart" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Sneakers" alt="Running Sneakers" />
+        <div class="product-info">
+          <span class="category clothing">Clothing</span>
+          <h3>Running Sneakers</h3>
+          <p class="description">Breathable mesh design with cushioned soles for all-day comfort.</p>
+          <p class="price">$64.99</p>
+          <button class="btn-details" onclick="toggleDetails(this)">View Details</button>
+          <div class="extra-details hidden">
+            <p>Sole: EVA Foam | Upper: Mesh | Sizes: 6–13</p>
+          </div>
+          <button class="btn-cart" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Sunglasses" alt="Sunglasses" />
+        <div class="product-info">
+          <span class="category accessories">Accessories</span>
+          <h3>UV Sunglasses</h3>
+          <p class="description">100% UV400 protection with polarized lenses and a lightweight frame.</p>
+          <p class="price">$34.99</p>
+          <button class="btn-details" onclick="toggleDetails(this)">View Details</button>
+          <div class="extra-details hidden">
+            <p>Lens: Polarized | Frame: TR90 | UV Rating: UV400</p>
+          </div>
+          <button class="btn-cart" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Task 3: Contact Form Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <p class="section-subtitle">We'd love to hear from you!</p>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your full name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+      <p id="form-success" class="form-success hidden">✅ Thank you! Your message has been sent.</p>
+    </form>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Contact us: <a href="mailto:support@mystore.com">support@mystore.com</a></p>
+    <p>&copy; 2026 My Online Store. All rights reserved.</p>
+  </footer>
+
+  <!-- ── Level 4: JavaScript ── -->
+  <script>
+    // Task 2: Cart count
+    let cartCount = 0;
+
+    // Task 1 & 2: Add to Cart — change button appearance + update count
+    function addToCart(btn) {
+      cartCount++;
+      document.getElementById('cart-count').textContent = cartCount;
+      btn.textContent = '✔ Added';
+      btn.classList.add('btn-added');
+      btn.disabled = true;
+    }
+
+    // Task 4: Toggle extra product details
+    function toggleDetails(btn) {
+      const details = btn.nextElementSibling;
+      if (details.classList.contains('hidden')) {
+        details.classList.remove('hidden');
+        btn.textContent = 'Hide Details';
+      } else {
+        details.classList.add('hidden');
+        btn.textContent = 'View Details';
+      }
+    }
+
+    // Task 3: Contact form submit
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('form-success').classList.remove('hidden');
+      e.target.reset();
+    }
+  </script>
+
+</body>
+
+</html>
